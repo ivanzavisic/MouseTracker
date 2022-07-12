@@ -52,36 +52,37 @@ class Particle {
 
 //Implementation
 let particles;
+
 function init() {
     particles = [];
     const radius = 100;
 
     for (let i = 0; i < 400; i++) {
         //full circle = pi * 2 * radians
-        const radian = (Math.PI * 2)/30;
-        Math.cos()
-        const x = canvas.width/2;
-        const y = canvas.height/2;
+        const radian = (Math.PI * 2) / 30;
+        const x = canvas.width / 2;
+        const y = canvas.height / 2;
         particles.push(new Particle(
             x, y, 5, 'hsl(0, 50%, 50%)', {
-                x: Math.cos(radian * i)*2,
-                y: Math.sin(radian * i)*2
+                x: Math.cos(radian * i) * 2,
+                y: Math.sin(radian * i) * 2
             }))
     }
 }
+
 let hue = 0;
 let hueRadians = 0;
 
 function generateRing() {
-    setTimeout(generateRing, 200);
+    setTimeout(generateRing, 50);
     hue = Math.sin(hueRadians);
     for (let i = 0; i < 30; i++) {
         //full circle = pi * 2 * radians
-        const radian = (Math.PI * 2)/30;
+        const radian = (Math.PI * 2) / 30;
         const x = mouse.x;
         const y = mouse.y;
         particles.push(new Particle(
-            x, y, 5, `hsl(${Math.abs(hue*360)}, 50%, 50%)`, {
+            x, y, 5, `hsl(${Math.abs(hue * 360)}, 50%, 50%)`, {
                 x: Math.cos(radian * i),
                 y: Math.sin(radian * i)
             }))
